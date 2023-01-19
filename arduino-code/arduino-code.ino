@@ -6,7 +6,7 @@
 #define trigPin2 6
 #define echoPin2 7
 
-
+#define motor 8
 
 #define LED_PIN 5
 #define NUM_LEDS 5
@@ -21,7 +21,7 @@ int afstand2;
 void setup() {
 
 FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
-pinMode(8, OUTPUT);
+pinMode(motor, OUTPUT);
 pinMode(trigPin, OUTPUT);
 pinMode(echoPin, INPUT);
 pinMode(trigPin2, OUTPUT);
@@ -67,7 +67,7 @@ Serial.println(" cm");
 if (afstand <= 100)
 
 {
-digitalWrite(13, HIGH);
+digitalWrite(motor, HIGH);
 Serial.println("o nee je gaat zo dood");
 leds[0] = CRGB(100, 0, 0);
 FastLED.show();
@@ -85,7 +85,7 @@ delay(2500);
 
 else if (afstand2 <= 500) {
 Serial.println("o nee je gaat zo dood");
-digitalWrite(13, HIGH);
+digitalWrite(motor, LOW);
 leds[0] = CRGB(0, 0, 0);
 FastLED.show();
 leds[1] = CRGB(0, 0, 0);
@@ -100,7 +100,7 @@ FastLED.show();
 
 
 else if (afstand2 >= 500) {
-digitalWrite(13, HIGH);
+digitalWrite(motor, LOW);
 leds[0] = CRGB(0, 50, 0);
 FastLED.show();
 leds[1] = CRGB(0, 50, 0);
