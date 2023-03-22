@@ -1,6 +1,5 @@
 #include <FastLED.h>
 
-
 #define trigPin 3
 #define echoPin 2
 
